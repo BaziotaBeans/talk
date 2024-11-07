@@ -7,6 +7,7 @@ import { Label } from "../ui/label"
 import { Button } from "../ui/button"
 import { Card } from "../ui/card"
 import { PhoneInput } from "./phone-input"
+import { OtpInput } from "./otp-input"
 
 export function RegisterForm() {
   const [step, setStep] = useState<"details" | "verification">("details")
