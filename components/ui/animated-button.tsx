@@ -1,11 +1,10 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-interface AnimatedButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface AnimatedButtonProps extends HTMLMotionProps<'button'> {
   children: React.ReactNode;
   variant?: 'default' | 'outline' | 'ghost';
 }
@@ -19,12 +18,9 @@ export const AnimatedButton = React.forwardRef<
       ref={ref}
       className={cn(
         'relative inline-flex items-center justify-center px-6 py-3 overflow-hidden rounded-lg text-white font-medium transition-all',
-        variant === 'default' &&
-          'bg-primary hover:bg-primary/90 dark:text-black',
-        variant === 'outline' &&
-          'border-2 border-primary text-primary hover:bg-primary/10',
-        variant === 'ghost' &&
-          'bg-transparent text-primary hover:bg-primary/10',
+        variant === 'default' && 'bg-primary hover:bg-primary/90 dark:text-black',
+        variant === 'outline' && 'border-2 border-primary text-primary hover:bg-primary/10',
+        variant === 'ghost' && 'bg-transparent text-primary hover:bg-primary/10',
         className
       )}
       whileHover={{ scale: 1.05 }}
